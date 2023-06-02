@@ -2,29 +2,46 @@ import 'dart:async';
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:boxshoot/game/components/explosion.dart';
+import 'package:boxshoot/game/components/playerBox.dart';
+import 'package:boxshoot/game/maps/map.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
-import 'package:flame/particles.dart';
 import 'package:flame_forge2d/flame_forge2d.dart' as forge;
 import 'package:flutter/material.dart';
 
 class BoxGame extends forge.Forge2DGame with HasTappables{
 
 
-  final _random=Random();
+  BoxGame():super(gravity: Vector2(0, 30));
+
+  final map=MapLevel();
+
+  
+  final random=Random();
+
+  PlayerBox? player;
+
+
+
+  addPlayer(PlayerBox player){
+    this.player?.removeFromParent();
+    this.player=player;
+    add(player);
+  }
+
 
 
   @override
   Color backgroundColor() {
-    // TODO: implement backgroundColor
     return Colors.transparent;
   }
 
-  late Sprite _particleSprite;
-
   @override
   FutureOr<void> onLoad() async{
-    _particleSprite=await loadSprite('particle.png');
+    await add(map);
+    camera.zoom=canvasSize.x/(32+5);
+
     return super.onLoad();
   }
 
@@ -37,41 +54,15 @@ class BoxGame extends forge.Forge2DGame with HasTappables{
 
 
 
-   Vector2 getRandomVector() {
-      return (Vector2.random(_random) - Vector2.random(_random)) * 200;
-    }
 
-    // Returns a random direction vector with slight angle to +ve y axis.
-    Vector2 getRandomDirection() {
-      return (Vector2.random(_random) - Vector2(0.5, -1)).normalized();
-    }
-
-
-
-  showImpact(Vector2 position){
-    final particleComponent = ParticleSystemComponent(
-      particle: Particle.generate(
-        count: 8,
-        lifespan: 0.2,
-        generator: (i) => AcceleratedParticle(
-          acceleration: getRandomVector(),
-          speed: getRandomVector(),
-          position: position.clone(),
-          child: SpriteParticle(
-            sprite: _particleSprite,
-            size: Vector2.all(2)
-          ),
-        ),
-      ),
-    );
-
-
-    add(particleComponent);
+  applyExplosion(Vector2 position){
+    add(Explosion(position: position));
+    player?.applyImpact(position);
   }
 
   @override
   void onTapDown(int pointerId, TapDownInfo info) {
-    showImpact(info.eventPosition.game);
+    applyExplosion(info.eventPosition.game);
     super.onTapDown(pointerId, info);
   }
 

@@ -14,12 +14,7 @@ const GameScreen({ Key? key }) : super(key: key);
           SizedBox(
             height: double.infinity,
             width: double.infinity,
-            child: Image.asset('assets/images/bg.png', fit: BoxFit.fill, alignment: Alignment.center, colorBlendMode: BlendMode.softLight,)),
-          Container(
-            height: double.infinity,
-            width: double.infinity,
-            color: const Color.fromARGB(255, 219, 88, 0).withOpacity(0.7),
-          ),
+            child: Image.asset('assets/images/bg.png', fit: BoxFit.fill, alignment: Alignment.center, color: const Color(0xffFF6801), colorBlendMode: BlendMode.hardLight,)),
           GameWidget(game: controller.game),
         ],
       ),

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:boxshoot/game/components/target.dart';
+import 'package:ysh/game/components/target.dart';
 import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import '../boxGame.dart';
@@ -9,14 +9,15 @@ import '../components/playerBox.dart';
 
 class MapLevel extends Component with HasGameRef<BoxGame>{
 
-  MapLevel():super();
+  MapLevel({required this.level}):super();
 
+  int level;
 
   late Vector2 mapSize;
 
   @override
   FutureOr<void> onLoad() async{
-    TiledComponent map=await TiledComponent.load('level3.tmx', Vector2.all(32)/10, priority: 20);
+    TiledComponent map=await TiledComponent.load('level$level.tmx', Vector2.all(32)/10, priority: 20);
     add(map);
     mapSize=map.scaledSize;
     
@@ -32,7 +33,7 @@ class MapLevel extends Component with HasGameRef<BoxGame>{
 
     for(final spawn in spawnLayer!.objects){
       if(spawn.class_=='playerSpawn'){
-        game.addPlayer(PlayerBox(position: Vector2(spawn.x/10,spawn.y/10), size: Vector2(spawn.width/10, spawn.height/10)));
+        await game.addPlayer(PlayerBox(position: Vector2(spawn.x/10,spawn.y/10), size: Vector2(spawn.width/10, spawn.height/10)*0.8));
       }
 
 
@@ -44,8 +45,8 @@ class MapLevel extends Component with HasGameRef<BoxGame>{
 
     
     
-    
-    game.camera.followVector2(Vector2(map.scaledSize.x/2, map.scaledSize.y/2));
+    if(level==4||level==5||level==8||level==9)game.player?.cameraFollow();
+    else game.camera.followVector2(Vector2(map.scaledSize.x/2, map.scaledSize.y/2));
     return super.onLoad();
   }
 

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:boxshoot/game/boxGame.dart';
+import 'package:ysh/game/boxGame.dart';
 import 'package:flame/components.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 

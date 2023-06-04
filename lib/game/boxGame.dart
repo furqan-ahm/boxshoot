@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:math';
 import 'dart:ui';
 
-import 'package:boxshoot/game/components/explosion.dart';
-import 'package:boxshoot/game/components/playerBox.dart';
-import 'package:boxshoot/game/maps/map.dart';
+import 'package:ysh/game/components/explosion.dart';
+import 'package:ysh/game/components/playerBox.dart';
+import 'package:ysh/game/maps/map.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame_forge2d/flame_forge2d.dart' as forge;
@@ -15,7 +15,7 @@ class BoxGame extends forge.Forge2DGame with HasTappables{
 
   BoxGame():super(gravity: Vector2(0, 30));
 
-  final map=MapLevel();
+  final map=MapLevel(level: 9);
 
   
   final random=Random();
@@ -24,10 +24,10 @@ class BoxGame extends forge.Forge2DGame with HasTappables{
 
 
 
-  addPlayer(PlayerBox player){
+  addPlayer(PlayerBox player)async{
     this.player?.removeFromParent();
     this.player=player;
-    add(player);
+    await add(player);
   }
 
 

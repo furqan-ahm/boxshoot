@@ -1,4 +1,4 @@
-import 'package:boxshoot/controllers/game_controller.dart';
+import 'package:ysh/controllers/game_controller.dart';
 import 'package:get/get.dart';
 
 class GlobalBindings extends Bindings{

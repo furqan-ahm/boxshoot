@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.9" tiledversion="1.9.1" orientation="orthogonal" renderorder="right-down" width="16" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="21">
+ <tileset firstgid="1" source="tileset.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="16" height="10">
+  <data encoding="csv">
+1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,8,
+6,9,9,9,9,9,9,9,9,9,9,9,9,9,9,5,
+10,3,3,3,3,3,3,3,9,9,9,9,9,9,9,5,
+6,9,9,9,9,9,9,5,9,9,6,9,9,9,9,5,
+6,9,9,9,9,9,9,5,3,3,6,9,9,9,9,5,
+6,9,9,9,9,9,9,5,9,9,9,9,9,9,9,5,
+6,9,9,3,3,3,3,11,9,9,9,9,9,9,9,5,
+6,9,9,9,9,9,9,9,9,9,9,9,9,9,9,5,
+6,9,9,9,9,9,9,9,9,9,9,9,9,9,9,5,
+7,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4
+</data>
+ </layer>
+ <objectgroup id="2" name="spawn">
+  <object id="1" class="playerSpawn" x="18.7433" y="22.4823" width="64" height="64"/>
+  <object id="2" class="targetSpawn" x="96" y="128" width="128" height="89"/>
+ </objectgroup>
+ <objectgroup id="3" name="components">
+  <object id="12" class="boundary" x="506.215" y="7.80441" width="6.09091" height="303.764"/>
+  <object id="13" class="boundary" x="-0.18444" y="7.27899" width="6.09091" height="303.764"/>
+  <object id="14" class="boundary" x="250.339" y="90.1389" width="6.09091" height="133.764"/>
+  <object id="15" class="boundary" x="320.089" y="96.0972" width="6.09091" height="63.764"/>
+  <object id="16" class="boundary" x="256.339" y="154.108" width="66.8409" height="5.74226"/>
+  <object id="17" class="boundary" x="4.63407" y="-0.104167" width="499.666" height="6"/>
+  <object id="18" class="boundary" x="4.67574" y="314.104" width="499.666" height="6"/>
+  <object id="19" class="boundary" x="4.96741" y="90.3125" width="248.999" height="6"/>
+  <object id="20" class="boundary" x="95.9825" y="218.161" width="156.393" height="6"/>
+ </objectgroup>
+</map>

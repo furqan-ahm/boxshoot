@@ -1,5 +1,5 @@
-import 'package:boxshoot/bindings.dart';
-import 'package:boxshoot/screens/game_screen.dart';
+import 'package:ysh/bindings.dart';
+import 'package:ysh/screens/game_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.9" tiledversion="1.9.1" orientation="orthogonal" renderorder="right-down" width="12" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="19">
+ <tileset firstgid="1" source="tileset.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="12" height="25">
+  <data encoding="csv">
+1,2,2,2,14,2,2,2,2,2,2,8,
+6,9,9,9,5,9,9,9,9,9,9,5,
+6,9,9,3,11,9,9,9,9,9,9,5,
+6,9,9,6,9,9,9,9,9,9,9,5,
+6,9,9,6,9,9,9,9,9,9,9,5,
+6,9,9,6,9,9,9,3,3,3,3,11,
+6,9,9,6,9,9,9,9,9,9,9,5,
+6,9,9,6,9,9,9,9,9,9,9,5,
+6,9,9,2,14,9,9,9,9,9,9,5,
+6,9,9,9,5,9,9,9,9,9,9,5,
+6,9,9,9,5,9,9,9,9,9,9,5,
+6,9,9,9,5,3,3,3,3,9,9,5,
+6,9,9,9,9,9,6,9,9,9,9,5,
+6,9,9,9,9,9,6,9,9,9,9,5,
+10,3,3,9,9,9,6,9,9,9,9,5,
+6,9,9,9,9,9,6,9,9,9,9,5,
+6,9,9,9,9,9,6,9,9,9,9,5,
+6,9,9,9,9,9,6,9,9,3,3,11,
+6,9,9,3,3,3,6,9,9,9,9,5,
+6,9,9,9,9,9,6,9,9,9,9,5,
+6,9,9,9,9,9,6,9,9,9,9,5,
+6,9,9,9,9,9,6,9,9,9,9,5,
+6,9,9,9,9,9,9,9,9,9,9,5,
+6,9,9,9,9,9,9,9,9,9,9,5,
+7,3,3,3,3,3,3,3,3,3,3,4
+</data>
+ </layer>
+ <objectgroup id="2" name="spawn">
+  <object id="1" class="targetSpawn" x="224" y="96" width="128" height="89"/>
+  <object id="2" class="playerSpawn" x="86.5123" y="20.5794" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="4" name="components">
+  <object id="3" class="boundary" x="7.167" y="0" width="368.333" height="6"/>
+  <object id="5" class="boundary" x="7.77289" y="794.03" width="368.333" height="6"/>
+  <object id="6" class="boundary" x="378.167" y="8.25" width="5.49967" height="781.417"/>
+  <object id="7" class="boundary" x="0.000165" y="6.7915" width="5.49967" height="785.167"/>
+  <object id="8" class="boundary" x="191.977" y="383.928" width="5.68149" height="320.235"/>
+  <object id="9" class="boundary" x="154.25" y="255.701" width="5.68149" height="128.235"/>
+  <object id="10" class="boundary" x="96.2843" y="90.1325" width="5.55649" height="171.61"/>
+  <object id="11" class="boundary" x="154.534" y="6.0075" width="5.80649" height="89.985"/>
+  <object id="12" class="boundary" x="159.847" y="378.132" width="128.306" height="5.61"/>
+  <object id="13" class="boundary" x="96.0212" y="602.293" width="95.806" height="5.61"/>
+  <object id="14" class="boundary" x="5.347" y="474.445" width="90.806" height="5.61"/>
+  <object id="15" class="boundary" x="101.097" y="256.195" width="53.806" height="5.61"/>
+  <object id="16" class="boundary" x="223.786" y="186.407" width="154.306" height="5.61"/>
+  <object id="17" class="boundary" x="287.847" y="570.445" width="90.556" height="5.61"/>
+  <object id="18" class="boundary" x="101.639" y="90.2158" width="53.056" height="5.61"/>
+ </objectgroup>
+</map>

@@ -76,4 +76,8 @@ class PlayerBox extends BodyComponent<BoxGame> with ContactCallbacks {
     );
     return world.createBody(bodyDef)..createFixture(fixtureDef);
   }
+
+  void cameraFollow() {
+    game.camera.followBodyComponent(this);
+  }
 }

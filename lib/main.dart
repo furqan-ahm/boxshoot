@@ -1,9 +1,12 @@
+import 'package:flutter/services.dart';
 import 'package:ysh/bindings.dart';
-import 'package:ysh/screens/game_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ysh/screens/menu_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   runApp(const MyApp());
 }
 
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Raleway',
         primarySwatch: Colors.blue,
       ),
-      home: const GameScreen(),
+      home: const MenuScreen(),
     );
   }
 }

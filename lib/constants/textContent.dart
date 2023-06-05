@@ -11,7 +11,7 @@ const Map<String,Map<String,String>> content={
     'off':'OFF',
     'target':'YOUR TARGET'
   },
-  'Brasil':{
+  'Brazil':{
     'level':'NÍVEL',
     'help':'COMO JOGAR?',
     'settings':'INSTALAÇÕES',

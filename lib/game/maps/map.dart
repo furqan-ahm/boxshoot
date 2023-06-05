@@ -43,6 +43,10 @@ class MapLevel extends Component with HasGameRef<BoxGame>{
 
     }
 
+
+    if(level==1){
+
+    }
     
     
     if(level==4||level==5||level==8||level==9)game.player?.cameraFollow();

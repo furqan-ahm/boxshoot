@@ -2,6 +2,9 @@ import 'dart:async';
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:flame_audio/flame_audio.dart';
+import 'package:get/get.dart';
+import 'package:ysh/controllers/game_controller.dart';
 import 'package:ysh/game/components/explosion.dart';
 import 'package:ysh/game/components/playerBox.dart';
 import 'package:ysh/game/maps/map.dart';
@@ -13,14 +16,20 @@ import 'package:flutter/material.dart';
 class BoxGame extends forge.Forge2DGame with HasTappables{
 
 
-  BoxGame():super(gravity: Vector2(0, 30));
+  BoxGame({required this.level}):super(gravity: Vector2(0, 30));
 
-  final map=MapLevel(level: 9);
+
+  int level;
+
+  late MapLevel map;
 
   
   final random=Random();
 
   PlayerBox? player;
+
+
+  GameController get controller=>Get.find<GameController>();
 
 
 
@@ -39,6 +48,7 @@ class BoxGame extends forge.Forge2DGame with HasTappables{
 
   @override
   FutureOr<void> onLoad() async{
+    map=MapLevel(level: level);
     await add(map);
     camera.zoom=canvasSize.x/(32+5);
 
@@ -57,6 +67,7 @@ class BoxGame extends forge.Forge2DGame with HasTappables{
 
   applyExplosion(Vector2 position){
     add(Explosion(position: position));
+    controller.playExplosionSFX();
     player?.applyImpact(position);
   }
 

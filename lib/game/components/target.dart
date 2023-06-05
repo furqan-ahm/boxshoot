@@ -53,8 +53,9 @@ class SmallTargetBox extends BodyComponent<BoxGame> {
 
   @override
   void update(double dt) {
-    if(body.linearVelocity.length>0.01&&ready){
+    if(body.linearVelocity.length>0.2&&ready){
       body.linearVelocity=(body.linearVelocity.normalized()*150);
+      game.controller.setGameOver();
       ready=false;
     }
     super.update(dt);

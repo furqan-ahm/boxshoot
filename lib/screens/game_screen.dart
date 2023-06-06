@@ -23,25 +23,29 @@ class GameScreen extends GetView<GameController> {
               alignment: Alignment.topCenter,
               child: Padding(
                 padding: const EdgeInsets.all(32.0),
-                child: OutlinedText(text: '${content[controller.Lang]!['level']} ${controller.currentLevel}',style: TextStyle(fontSize: 32),),
+                child: OutlinedText(text: '${content[controller.Lang]!['level']} ${controller.currentLevel}',style: const TextStyle(fontSize: 32),),
               ),
             ),
-            controller.currentLevel==1?Obx(
-              () {
-                return Align(
-                  alignment: Alignment.center+Alignment(0.43, -250/MediaQuery.of(context).size.height),
-                  child: Text(content[controller.Lang]!['tap']??'tap', style: TextStyle(color: Colors.white),),
-                );
-              }
-            ):const SizedBox.shrink(),
-            controller.currentLevel==1?Obx(
-              () {
-                return Align(
-                  alignment: Alignment.center+Alignment(0, 300/MediaQuery.of(context).size.height),
-                  child: Text(content[controller.Lang]!['target']??'target', style: TextStyle(color: Colors.white),),
-                );
-              }
-            ):const SizedBox.shrink(),
+            IgnorePointer(
+              child: controller.currentLevel==1?Obx(
+                () {
+                  return Align(
+                    alignment: Alignment.center+Alignment(0.43, -250/MediaQuery.of(context).size.height),
+                    child: Text(content[controller.Lang]!['tap']??'tap', style: const TextStyle(color: Colors.white),),
+                  );
+                }
+              ):const SizedBox.shrink(),
+            ),
+            IgnorePointer(
+              child: controller.currentLevel==1?Obx(
+                () {
+                  return Align(
+                    alignment: Alignment.center+Alignment(0, 300/MediaQuery.of(context).size.height),
+                    child: Text(content[controller.Lang]!['target']??'target', style: const TextStyle(color: Colors.white),),
+                  );
+                }
+              ):const SizedBox.shrink(),
+            ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
